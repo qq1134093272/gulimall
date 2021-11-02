@@ -8,7 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 192.168.56.10:8848
   application:
     name: gulimall-product
 
@@ -17,7 +17,9 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
-
+      logic-delete-field: show_status  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 
 server:
