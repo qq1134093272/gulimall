@@ -16,15 +16,15 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-<!--    <mybatisplus.version>3.3.1</mybatisplus.version>-->
+    <!--    <mybatisplus.version>3.3.1</mybatisplus.version>-->
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--            <version>2021.1</version>-->
-<!--            <type>pom</type>-->
-<!--            <scope>import</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+        <!--            <version>2021.1</version>-->
+        <!--            <type>pom</type>-->
+        <!--            <scope>import</scope>-->
+        <!--        </dependency>-->
         <!--        服务的注册/发现-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -67,13 +67,25 @@
             <version>8.0.25</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <version>3.1.0</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
 
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <version>3.0.1</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2.1-b03</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -113,28 +125,52 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.10</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            &lt;!&ndash;<artifactId>aliyun-oss-spring-boot-starter</artifactId>&ndash;&gt;-->
-<!--            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>-->
-<!--            <version>2.1.0.RELEASE</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.4.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.1.9.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.1.9.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            &lt;!&ndash;<artifactId>aliyun-oss-spring-boot-starter</artifactId>&ndash;&gt;-->
+        <!--            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>-->
+        <!--            <version>2.1.0.RELEASE</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
-<!--        版本不能过高，否则采集不到nacos远程配置文件-->
+        <!--        版本不能过高，否则采集不到nacos远程配置文件-->
         <dependencies>
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
-<!--                <version>2.1.0.RELEASE</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.alibaba.cloud</groupId>-->
+            <!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+            <!--                <version>2.1.0.RELEASE</version>-->
+            <!--                <type>pom</type>-->
+            <!--                <scope>import</scope>-->
+            <!--            </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR5</version>
+                <version>Greenwich.SR3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

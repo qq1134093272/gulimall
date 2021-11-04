@@ -1,10 +1,7 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
- * https://www.renren.io
- *
- * 版权所有，侵权必究！
- */
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
 package com.zjh.common.exception;
 
@@ -17,48 +14,42 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-/**
- * 异常处理器
- *
- * @author Mark sunlightcs@gmail.com
- */
 @RestControllerAdvice
 public class RRExceptionHandler {
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	/**
-	 * 处理自定义异常
-	 */
-	@ExceptionHandler(RRException.class)
-	public R handleRRException(RRException e){
+	public RRExceptionHandler() {
+	}
+
+	@ExceptionHandler({RRException.class})
+	public R handleRRException(RRException e) {
 		R r = new R();
 		r.put("code", e.getCode());
 		r.put("msg", e.getMessage());
-
 		return r;
 	}
 
-	@ExceptionHandler(NoHandlerFoundException.class)
+	@ExceptionHandler({NoHandlerFoundException.class})
 	public R handlerNoFoundException(Exception e) {
-		logger.error(e.getMessage(), e);
+		this.logger.error(e.getMessage(), e);
 		return R.error(404, "路径不存在，请检查路径是否正确");
 	}
 
-	@ExceptionHandler(DuplicateKeyException.class)
-	public R handleDuplicateKeyException(DuplicateKeyException e){
-		logger.error(e.getMessage(), e);
+	@ExceptionHandler({DuplicateKeyException.class})
+	public R handleDuplicateKeyException(DuplicateKeyException e) {
+		this.logger.error(e.getMessage(), e);
 		return R.error("数据库中已存在该记录");
 	}
 
-	@ExceptionHandler(AuthorizationException.class)
-	public R handleAuthorizationException(AuthorizationException e){
-		logger.error(e.getMessage(), e);
+	@ExceptionHandler({AuthorizationException.class})
+	public R handleAuthorizationException(AuthorizationException e) {
+		this.logger.error(e.getMessage(), e);
 		return R.error("没有权限，请联系管理员授权");
 	}
 
-	@ExceptionHandler(Exception.class)
-	public R handleException(Exception e){
-		logger.error(e.getMessage(), e);
+	@ExceptionHandler({Exception.class})
+	public R handleException(Exception e) {
+		this.logger.error(e.getMessage(), e);
 		return R.error();
 	}
 }

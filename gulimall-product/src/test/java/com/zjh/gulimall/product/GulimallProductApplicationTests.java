@@ -4,6 +4,7 @@ package com.zjh.gulimall.product;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClient;
 //import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.OSSClientBuilder;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zjh.gulimall.product.entity.BrandEntity;
 import com.zjh.gulimall.product.service.BrandService;
