@@ -37,4 +37,9 @@ public class AttrAttrgroupRelationEntity implements Serializable {
 	 */
 	private Integer attrSort;
 
+	/**
+	 * 所属分组类别
+	 */
+	private Integer valueType;
+
 }

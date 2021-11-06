@@ -8,6 +8,7 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zjh.gulimall.product.entity.BrandEntity;
 import com.zjh.gulimall.product.service.BrandService;
+import com.zjh.gulimall.product.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -30,8 +32,17 @@ import java.util.List;
 public class GulimallProductApplicationTests {
     @Autowired
     BrandService brandService;
-    @Resource
-    OSSClient ossClient;
+//    @Resource
+//    OSSClient ossClient;
+    @Autowired
+    CategoryService categoryService;
+
+
+    @Test
+    public void testFindPath(){
+        Long[] catelogPath = categoryService.findCatelogPath(225L);
+        log.info("完整路径：{}", Arrays.asList(catelogPath));
+    }
 
 
     /**
@@ -54,14 +65,14 @@ public class GulimallProductApplicationTests {
 //        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
 // 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
-        InputStream inputStream = new FileInputStream("E:\\Java Project\\pic\\log.txt");
-// 依次填写Bucket名称（例如examplebucket）和Object完整路径（例如exampledir/exampleobject.txt）。Object完整路径中不能包含Bucket名称。
-        ossClient.putObject("gulimall-yep", "pic/log2.txt", inputStream);
-
-// 关闭OSSClient。
-        ossClient.shutdown();
-        System.out.println("上传成功！");
-    }
+//        InputStream inputStream = new FileInputStream("E:\\Java Project\\pic\\log.txt");
+//// 依次填写Bucket名称（例如examplebucket）和Object完整路径（例如exampledir/exampleobject.txt）。Object完整路径中不能包含Bucket名称。
+//        ossClient.putObject("gulimall-yep", "pic/log2.txt", inputStream);
+//
+//// 关闭OSSClient。
+//        ossClient.shutdown();
+//        System.out.println("上传成功！");
+//    }
 
 
 //    public void contextLoads() {
@@ -73,6 +84,6 @@ public class GulimallProductApplicationTests {
 //        list.forEach((item)->{
 //            System.out.println(item);
 //        });
-//    }
+    }
 
 }
