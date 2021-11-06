@@ -3,7 +3,6 @@ package com.zjh.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +20,9 @@ import com.zjh.common.utils.R;
 /**
  * 属性&属性分组关联
  *
- * @author zjh
- * @email 1134093272@qq.com
- * @date 2021-10-23 21:36:25
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/attrattrgrouprelation")

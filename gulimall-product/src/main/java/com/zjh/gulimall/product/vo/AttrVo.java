@@ -1,7 +1,5 @@
 package com.zjh.gulimall.product.vo;
 
-//import com.baomidou.mybatisplus.annotation.TableId;
-
 
 import lombok.Data;
 
@@ -10,7 +8,6 @@ public class AttrVo {
     /**
      * 属性id
      */
-//    @TableId
     private Long attrId;
     /**
      * 属性名
@@ -20,6 +17,10 @@ public class AttrVo {
      * 是否需要检索[0-不需要，1-需要]
      */
     private Integer searchType;
+    /**
+     * 值类型[0-为单个值，1-可以选择多个值]
+     */
+    private Integer valueType;
     /**
      * 属性图标
      */
@@ -45,14 +46,5 @@ public class AttrVo {
      */
     private Integer showDesc;
 
-
-    /**
-     * 分组Id
-     */
     private Long attrGroupId;
-
-    /**
-     * 所属分组类别
-     */
-    private Integer valueType;
 }

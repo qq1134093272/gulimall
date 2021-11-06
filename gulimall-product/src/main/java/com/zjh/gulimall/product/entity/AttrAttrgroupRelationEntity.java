@@ -10,9 +10,9 @@ import lombok.Data;
 /**
  * 属性&属性分组关联
  * 
- * @author zjh
- * @email 1134093272@qq.com
- * @date 2021-10-23 21:36:25
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 21:08:49
  */
 @Data
 @TableName("pms_attr_attrgroup_relation")
@@ -36,10 +36,5 @@ public class AttrAttrgroupRelationEntity implements Serializable {
 	 * 属性组内排序
 	 */
 	private Integer attrSort;
-
-	/**
-	 * 所属分组类别
-	 */
-	private Integer valueType;
 
 }

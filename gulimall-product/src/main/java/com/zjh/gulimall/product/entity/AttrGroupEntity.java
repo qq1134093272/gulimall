@@ -11,9 +11,9 @@ import lombok.Data;
 /**
  * 属性分组
  * 
- * @author zjh
- * @email 1134093272@qq.com
- * @date 2021-10-23 21:36:25
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 21:08:49
  */
 @Data
 @TableName("pms_attr_group")
@@ -46,7 +46,14 @@ public class AttrGroupEntity implements Serializable {
 	 */
 	private Long catelogId;
 
-	@TableField(exist = false)	//该字段在数据库中不存在
+
+	/**
+	 * value_type is fking bull-shit!!
+	 */
+
+
+	@TableField(exist = false)
 	private Long[] catelogPath;
+
 
 }
