@@ -13,7 +13,8 @@ import com.zjh.gulimall.product.vo.AttrVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,14 +22,15 @@ import java.util.stream.Collectors;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+
 import com.zjh.common.utils.PageUtils;
 import com.zjh.common.utils.Query;
 
 import com.zjh.gulimall.product.dao.AttrDao;
 import com.zjh.gulimall.product.entity.AttrEntity;
 import com.zjh.gulimall.product.service.AttrService;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
+
 
 
 @Service("attrService")
@@ -72,22 +74,26 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
     }
 
+    /**
+     *
+     * 分页模糊查询  ，比如按分类查属性、按属性类别查属性
+     */
+
+
+
     @Override
     public PageUtils queryBaseAttrPage(Map<String, Object> params, Long catelogId, String type) {
-        QueryWrapper<AttrEntity> queryWrapper = new QueryWrapper<AttrEntity>()
-                .eq("attr_type", "base"
-                        .equalsIgnoreCase(type) ? ProductConstant.AttrEnum.ATTR_TYPE_BASE
-                        .getCode() : ProductConstant.AttrEnum.ATTR_TYPE_SALE.getCode());
+        QueryWrapper<AttrEntity> queryWrapper = new QueryWrapper<AttrEntity>().eq("attr_type","base".equalsIgnoreCase(type)?ProductConstant.AttrEnum.ATTR_TYPE_BASE.getCode():ProductConstant.AttrEnum.ATTR_TYPE_SALE.getCode());
 
-        if (catelogId != 0) {
-            queryWrapper.eq("catelog_id", catelogId);
+        if(catelogId != 0){
+            queryWrapper.eq("catelog_id",catelogId);
         }
 
         String key = (String) params.get("key");
-        if (!StringUtils.isEmpty(key)) {
+        if(!StringUtils.isEmpty(key)){
             //attr_id  attr_name
-            queryWrapper.and((wrapper) -> {
-                wrapper.eq("attr_id", key).or().like("attr_name", key);
+            queryWrapper.and((wrapper)->{
+                wrapper.eq("attr_id",key).or().like("attr_name",key);
             });
         }
 
@@ -103,9 +109,9 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
             BeanUtils.copyProperties(attrEntity, attrRespVo);
 
             //1、设置分类和分组的名字
-            if ("base".equalsIgnoreCase(type)) {
+            if("base".equalsIgnoreCase(type)){
                 AttrAttrgroupRelationEntity attrId = relationDao.selectOne(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_id", attrEntity.getAttrId()));
-                if (attrId != null && attrId.getAttrGroupId() != null) {
+                if (attrId != null && attrId.getAttrGroupId()!=null) {
                     AttrGroupEntity attrGroupEntity = attrGroupDao.selectById(attrId.getAttrGroupId());
                     attrRespVo.setGroupName(attrGroupEntity.getAttrGroupName());
                 }
