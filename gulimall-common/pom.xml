@@ -149,6 +149,12 @@
             <version>2.0.1.Final</version>
             <scope>compile</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.zjh.gulimall</groupId>-->
+<!--            <artifactId>gulimall-product</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>com.alibaba.cloud</groupId>-->
         <!--            &lt;!&ndash;<artifactId>aliyun-oss-spring-boot-starter</artifactId>&ndash;&gt;-->

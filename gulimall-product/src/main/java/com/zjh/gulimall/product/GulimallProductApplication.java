@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 /**
@@ -13,6 +14,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *  3）、加上逻辑删除注解——实体类字段（showStatus）上加上@TableLogic注解
  */
 
+
+@EnableFeignClients(basePackages = "com.zjh.gulimall.product.feign")
 @MapperScan("com.zjh.gulimall.product.dao")
 @SpringBootApplication
 @EnableDiscoveryClient

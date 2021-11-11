@@ -4,7 +4,8 @@ spring:
     password: root
     url: jdbc:mysql://192.168.56.10:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
   cloud:
     nacos:
       discovery:
@@ -34,3 +35,4 @@ server:
 logging:
   level:
     com.zjh.gulimall: debug
+

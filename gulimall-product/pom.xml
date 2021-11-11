@@ -83,6 +83,18 @@
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.zjh.gulimall</groupId>-->
+<!--            <artifactId>gulimall-member</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.zjh.gulimall</groupId>-->
+<!--            <artifactId>gulimall-coupon</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+        <!--        <dependency>-->
+<!--            <groupId>com.zjh.gulimall</groupId>-->
 <!--            <artifactId>gulimall-thirdparty</artifactId>-->
 <!--            <version>0.0.1-SNAPSHOT</version>-->
 <!--        </dependency>-->
